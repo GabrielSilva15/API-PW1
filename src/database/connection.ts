@@ -1,6 +1,7 @@
 import {Sequelize} from "sequelize-typescript";
 import User from "./model/User";
-
+import Fornecedor from "./model/Fornecedor";
+import FornecedorEvento from "./model/FornecedorEvento";
 
 
 
@@ -12,7 +13,7 @@ function sequelizeInit(database:string, username:string,password:string,host:str
         password,
         host,
         dialect:'postgres',
-        models:[User]
+        models:[User, Fornecedor, FornecedorEvento]
     })
 };
 
