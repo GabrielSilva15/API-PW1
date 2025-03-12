@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { findByIdEventController } from "../useCase/findByIdEvent";
-import { deleteEventController } from "../useCase/deleteEvent";
-import { findAllEventsByUserIdController } from "../useCase/findAllEventsByUserId";
-import { createEventController } from "../useCase/createEvent";
-import { updateEventController } from "../useCase/updateEvent";
-import { saveImageEventController } from "../useCase/saveImageEvent";
+import { findByIdEventController } from "../useCases/findByIdEvent"; 
+import { deleteEventController } from "../useCases/deleteEvent"; 
+import { findAllEventsByUserIdController } from "../useCases/findAllEventsByUserId"; 
+import { createEventController } from "../useCases/createEvent"; 
+import { updateEventController } from "../useCases/updateEvent"; 
+import { saveImageEventController } from "../useCases/saveImageEvent"; 
 import AuthMid from "../middlewares/authMid";
 import upload from "../utils/multer";
 

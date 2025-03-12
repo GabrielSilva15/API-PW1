@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { findAllFornecedoresController } from "../useCase/findAllFornecedores";
-import { createFornecedorController } from "../useCase/createFornecedor";
-import { findByIdFornecedorController } from "../useCase/findByIdFornecedor";
-import { updateFornecedorController } from "../useCase/updateFornecedor";
-import { deleteFornecedorController } from "../useCase/deleteFornecedor";
-import { saveImageFornecedorController } from "../useCase/saveImageFornecedor";
+import { findAllFornecedoresController } from "../useCases/findAllFornecedores"; 
+import { createFornecedorController } from "../useCases/createFornecedor"; 
+import { findByIdFornecedorController } from "../useCases/findByIdFornecedor"; 
+import { updateFornecedorController } from "../useCases/updateFornecedor"; 
+import { deleteFornecedorController } from "../useCases/deleteFornecedor"; 
+import { saveImageFornecedorController } from "../useCases/saveImageFornecedor"; 
 import AuthMid from "../middlewares/authMid";
 import upload from "../utils/multer";
 

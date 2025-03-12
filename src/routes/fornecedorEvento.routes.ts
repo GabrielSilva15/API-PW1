@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-import { findAllFornecedoresEventoController } from "../useCase/findAllFornecedorEvento"; 
-import { createFornecedorEventoController } from "../useCase/createFornecedorEvento";
-import { deleteFornecedorEventoController } from "../useCase/deleteFornecedorEvento";
-import { findAllFornecedorEventosController } from "../useCase/findAllFornecedorEventos";
+import { findAllFornecedoresEventoController } from "../useCases/findAllFornecedorEvento"; 
+import { createFornecedorEventoController } from "../useCases/createFornecedorEvento"; 
+import { deleteFornecedorEventoController } from "../useCases/deleteFornecedorEvento"; 
+import { findAllFornecedorEventosController } from "../useCases/findAllFornecedorEventos"; 
 import AuthMid from "../middlewares/authMid";
 
 const router = Router();

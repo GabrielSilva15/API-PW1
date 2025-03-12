@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { createConvidadoController } from "../useCase/createConvidado"; 
-import { deleteConvidadoController } from "../useCase/deleteConvidado";
-import { findConvidadosEventoController } from "../useCase/findConvidadosEvento";
-import { findByConvidadoEventoController } from "../useCase/findByConvidadoEvento";
-import { confirmaPresencaConvidadoController } from "../useCase/confirmaPresencaConvidado";
-import { findAllEventosConvidadoController } from "../useCase/findAllEventosConvidado";
+import { createConvidadoController } from "../useCases/createConvidado"; 
+import { deleteConvidadoController } from "../useCases/deleteConvidado"; 
+import { findConvidadosEventoController } from "../useCases/findConvidadosEvento"; 
+import { findByConvidadoEventoController } from "../useCases/findByConvidadoEvento"; 
+import { confirmaPresencaConvidadoController } from "../useCases/confirmaPresencaConvidado"; 
+import { findAllEventosConvidadoController } from "../useCases/findAllEventosConvidado"; 
 import AuthMid from "../middlewares/authMid";
 
 const router = Router();
