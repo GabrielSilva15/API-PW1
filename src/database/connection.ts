@@ -8,6 +8,10 @@ import FornecedorEvento from "./model/FornecedorEvento";
 
 function sequelizeInit(database:string, username:string,password:string,host:string){
 
+    console.log(database);
+    console.log(username);
+    console.log(password);
+    console.log(host);
     return new Sequelize({
         database,
         username,

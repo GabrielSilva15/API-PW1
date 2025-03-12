@@ -4,16 +4,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-console.log(process.env.POSTGRES_PASSWORD)
-
 const sequelize = sequelizeInit(
     process.env.POSTGRES_DB as string,
     process.env.POSTGRES_USER as string,
     process.env.POSTGRES_PASSWORD as string,
     process.env.POSTGRES_HOST as string
 );
-
-
 
 try {
     await sequelize.authenticate();
