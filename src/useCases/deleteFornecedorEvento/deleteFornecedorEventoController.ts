@@ -12,7 +12,7 @@ export class DeleteFornecedorEventoController{
 
             await this.deleteFornecedorEventoUseCase.execute(fornecedorId,eventId,organizadorId);
 
-            response.status(200).json("Convidado deletado com sucesso do evento");
+            response.status(200).json("Fornecedor deletado com sucesso do evento");
             return;
 
         } catch (error:any) {

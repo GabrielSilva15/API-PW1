@@ -7,6 +7,7 @@ export class DeleteFornecedorUseCase{
         let fornecedorExist = await this.fornecedorRepository.findById(id);
         let fornecedorEventoExist = await this.fornecedorEventoRepository.findAllFornecedorEventos(id);
 
+        console.log(fornecedorEventoExist)
         if(!fornecedorExist){
             throw Error("Não existe nenhum forcedor com esse ID!");
         }
@@ -15,7 +16,8 @@ export class DeleteFornecedorUseCase{
             throw Error("O usuário que está tentando deletar o forncedor não é seu criado!");
         }
 
-        if(fornecedorEventoExist){
+        if(fornecedorEventoExist.length !== 0){
+
             throw Error("Existe evento ligado a este fornecedor, antes de apagar por favor apague a ligação do fornecedor com o(s) evento(s)");
         }
        

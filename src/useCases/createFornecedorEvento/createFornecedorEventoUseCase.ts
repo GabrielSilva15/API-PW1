@@ -19,7 +19,7 @@ export class CreateFornecedorEventoUseCase{
             throw Error("Evento com esse id não existe!");
         }
 
-        if(fornecedorExist.userId !== organizadorId || eventExist!.organizadorId === organizadorId){
+        if(fornecedorExist.userId !== organizadorId || eventExist!.organizadorId !== organizadorId){
             throw Error("O usuario que está tentando adicionar o fornecedor ao evento, não é seu criador!");
         }
         

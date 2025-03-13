@@ -41,6 +41,7 @@ export class ConvidadoRepository implements IConvidadoRepository{
     }
 
     async deleteConvidado(convidadoId: string, eventId: string): Promise<void> {
+
         await ConvidadoModel.destroy({
             where:{
                 convidadoId,
