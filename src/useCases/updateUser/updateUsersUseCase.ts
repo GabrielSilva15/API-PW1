@@ -5,7 +5,9 @@ export class UpdateUsersUseCase{
     constructor(private userRepository:IUserRepository){}
 
     async execute(data:any, id:string){
+        
         let userExist = await this.userRepository.findById(id) as User; 
+
         
         if(!userExist){
             throw Error("Esse ID não está relacionado a nenhum usuário!");
@@ -13,12 +15,12 @@ export class UpdateUsersUseCase{
         
         if(data.cpf){
             let cpfExist = await this.userRepository.findByCPF(data.cpf);
-            if(cpfExist)throw Error("O cpf que você está tentando adicionar já está cadastrado no sistema, por favor informe outro!");
+            if(cpfExist && cpfExist.id !== userExist.id )throw Error("O cpf que você está tentando adicionar já está cadastrado no sistema, por favor informe outro!");
         }
         
         if(data.email){
             let emailExist = await this.userRepository.findByEmail(data.email);
-            if(emailExist)throw Error("O email que você está tentando adicionar já está cadastrado no sistema, por favor informe outro!");
+            if(emailExist.id !== userExist.id)throw Error("O email que você está tentando adicionar já está cadastrado no sistema, por favor informe outro!");
         }
 
 
@@ -32,6 +34,7 @@ export class UpdateUsersUseCase{
                 password:userExist.password,
                 telefone:data.telefone || userExist.telefone
         }
+        
         if(data.idade >= 18 && data.cpf){
             updateUser.organizador = true;
         }else{

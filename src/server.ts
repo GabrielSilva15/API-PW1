@@ -15,10 +15,10 @@ try {
     await sequelize.authenticate();
     await sequelize.sync();
 
-    app.listen(3000,()=>{
+    app.listen(3006,()=>{
         console.table({
-            port:3000,
-            URL:"https://localhost:3000"
+            port:3006,
+            URL:"https://localhost:3006"
         })
     })
 

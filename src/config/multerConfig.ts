@@ -2,13 +2,23 @@ import multer, {Options} from "multer";
 import path from "path";
 import { v4 } from "uuid";
 
-const dirname = path.resolve("uploads");
+
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 
 export const multerConfig = {
     storage: multer.diskStorage({
-        destination:(req,file,callback)=>{        
-            callback(null,path.join("uploads"));
+        destination:(req,file,callback)=>{
+            console.log("aqyu");
+            
+            console.log(path.join("/uploads"));
+            
+            callback(null,path.join(__dirname+"../"+"../"+"../"+"../","uploads"));
             
         },
         filename:(req,file,callback)=>{

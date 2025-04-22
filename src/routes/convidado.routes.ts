@@ -14,7 +14,7 @@ router.get('/convidado',AuthMid.handle,(request,response)=>findByConvidadoEvento
 router.get('/convidado/eventos',AuthMid.handle,(request,response)=>findAllEventosConvidadoController.handle(request,response));
 
 
-router.post('/convidado',AuthMid.handle,(request,response)=>createConvidadoController.handle(request,response));
+router.post('/convidado/:eventId',AuthMid.handle,(request,response)=>createConvidadoController.handle(request,response));
 
 router.patch('/convidado/confirma-presenca', AuthMid.handle,(request,response)=>confirmaPresencaConvidadoController.handle(request,response));
 

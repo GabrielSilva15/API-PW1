@@ -16,7 +16,8 @@ export class CreateConvidadoController{
     async handle(request:Request,response:Response){
         try {
 
-            const {convidadoId,eventId} = request.body;
+            const {convidadoId} = request.body;
+            const {eventId} = request.params;
             let organizadorId =  request.userId;
 
             let createConvidado = await this.createConvidadoUseCase.execute(convidadoId,eventId,organizadorId) as Convidado;
