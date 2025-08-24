@@ -12,6 +12,8 @@ export class FindAllEventosConvidadoUseCase{
         }
 
         let eventosConvidado = await this.convidadoRepository.findAllEventosConvidado(convidadoId);
+        console.log(eventosConvidado);
+        
 
         return eventosConvidado;
     }

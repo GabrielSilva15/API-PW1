@@ -35,6 +35,18 @@ export class ConvidadoRepository implements IConvidadoRepository{
                     nomeEvento:eventoDados!.title
                 })
 
+        
+                console.log(result);
+                console.log({
+                    convidadoId:convidadoDados!.id,
+                    nomeConvidado:convidadoDados!.name,
+                    presenca:convidado!.presenca,
+                    eventId:eventoDados!.id,
+                    nomeEvento:eventoDados!.title
+                });
+                
+                
+
         }
 
         return result;
@@ -119,7 +131,35 @@ export class ConvidadoRepository implements IConvidadoRepository{
             }
         })
 
-        return eventosConvidado;
+        console.log("Foi nesse");
+
+        let result = [];
+
+        for(const convidado of eventosConvidado){
+                let convidadoDados = await User.findOne({
+                    where:{
+                    id:convidado.convidadoId
+                }});
+    
+                let eventoDados =  await Event.findOne({
+                    where:{
+                    id:convidado.eventId
+                }});
+                
+                result.push({
+                    presenca:convidado!.presenca,
+                    eventId:eventoDados!.id,
+                    nomeEvento:eventoDados!.title
+                })
+
+        
+                
+                
+
+        }
+
+        return result;
+    
     }
     
 }

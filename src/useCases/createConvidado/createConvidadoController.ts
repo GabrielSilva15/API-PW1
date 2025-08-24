@@ -22,6 +22,7 @@ export class CreateConvidadoController{
 
             let createConvidado = await this.createConvidadoUseCase.execute(convidadoId,eventId,organizadorId) as Convidado;
 
+            
             response.status(201).json(createConvidado);
             return;
 

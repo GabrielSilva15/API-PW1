@@ -7,6 +7,7 @@ import { updateEventController } from "../useCases/updateEvent";
 import { saveImageEventController } from "../useCases/saveImageEvent"; 
 import AuthMid from "../middlewares/authMid";
 import upload from "../utils/multer";
+import { findByIdEventImageController } from "../useCases/findByIdEventImage";
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.post('/event',AuthMid.handle,(request,response)=>createEventController.ha
 //Get
 router.get('/event/:id',AuthMid.handle,(request,response)=>findByIdEventController.handle(request,response));
 router.get('/event',AuthMid.handle,(request,response)=>findAllEventsByUserIdController.handle(request,response));
+router.get('/event-image/:id',AuthMid.handle,(request,response)=>findByIdEventImageController.handle(request,response));
 
 //PUT
 router.put('/event/:id',AuthMid.handle,(request,response)=>updateEventController.handle(request,response));

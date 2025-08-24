@@ -1,15 +1,17 @@
 import { IConvidadoRepository } from "../../repositories/IConvidadoRepository"; 
 import { IEventRepository } from "../../repositories/IEventRepository"; 
 import { IUserRepository } from "../../repositories/IUserRepository"; 
-
+import { EmailService } from "../../services/emailService.js";
 import { User } from "../../types/User";
 import { Event } from "../../types/Event";
 
 export class CreateConvidadoUseCase{
-    constructor(private convidadoRepository:IConvidadoRepository, private eventRepository:IEventRepository,private userRepository:IUserRepository ){}
+    constructor(private convidadoRepository:IConvidadoRepository, 
+        private eventRepository:IEventRepository,
+        private userRepository:IUserRepository){}
 
     async execute(convidadoId:string,eventId:string,organizadorId:string){
-
+        const emailService = new EmailService();
         const convidadoExist = await this.userRepository.findById(convidadoId) as User;
         const eventExist = await this.eventRepository.findById(eventId) as Event;
         const convidadoEventoExist = await this.convidadoRepository.findByConvidadoEvento(convidadoId,eventId);
@@ -36,6 +38,9 @@ export class CreateConvidadoUseCase{
         }
 
         let createConvite= await this.convidadoRepository.createConvidado(convidadoId,eventId) as any;
+
+
+        emailService.execute(convidadoExist.dataValues.email,eventExist.dataValues.title, `Você foi convidado para o evento:${eventExist.dataValues.title}`);
 
         return {
             convidadoId:createConvite.userId,
