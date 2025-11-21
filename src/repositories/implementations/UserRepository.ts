@@ -1,15 +1,15 @@
 
-import { User } from "../../types/User"; 
+import { User } from "../../types/User";
 import UserModel from "../../database/model/User";
 import { IUserRepository } from "../IUserRepository";
 
-export class UserRepository implements IUserRepository{
+export class UserRepository implements IUserRepository {
     async findAll(): Promise<User[]> {
-           
-        let result=await UserModel.findAll();
+
+        let result = await UserModel.findAll();
         let users: User[] = [];
 
-        result.forEach((user:any )=>{
+        result.forEach((user: any) => {
             users.push(user);
         })
 
@@ -18,7 +18,7 @@ export class UserRepository implements IUserRepository{
     }
 
     async createUser(user: User): Promise<unknown> {
-        const newUser =  await UserModel.create({
+        const newUser = await UserModel.create({
             ...user
         })
         return newUser;
@@ -26,7 +26,7 @@ export class UserRepository implements IUserRepository{
 
     async findByCPF(cpf: string): Promise<User | null> {
         const result = await UserModel.findOne({
-            where:{
+            where: {
                 cpf
             }
         })
@@ -35,39 +35,39 @@ export class UserRepository implements IUserRepository{
     }
 
     async findByEmail(email: string): Promise<User | null> {
-        
-            const result = await UserModel.findOne({
-                where:{
-                    email
-                }
-            })
-    
-            return result;
-     
+
+        const result = await UserModel.findOne({
+            where: {
+                email
+            }
+        })
+
+        return result;
+
     }
 
-    async updateUser(id:string,user: User): Promise<unknown> {
-        await UserModel.update({...user},{
-            where:{
+    async updateUser(id: string, user: User): Promise<unknown> {
+        await UserModel.update({ ...user }, {
+            where: {
                 id
             }
         })
 
-        
-        
-        let updateUser =  await UserModel.findOne({
-            where:{
+
+
+        let updateUser = await UserModel.findOne({
+            where: {
                 id
             }
         });
-        
-        return updateUser ;
+
+        return updateUser;
     }
 
     async findById(id: string): Promise<User | null> {
 
         let user = await UserModel.findOne({
-            where:{
+            where: {
                 id
             }
         })
@@ -76,10 +76,11 @@ export class UserRepository implements IUserRepository{
 
     async deleteUser(id: string): Promise<void> {
         await UserModel.destroy({
-            where:{
+            where: {
                 id
             }
         })
     }
+
 
 }

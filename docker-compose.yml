@@ -27,6 +27,7 @@ services:
       -  3006
     depends_on:
       - banco
+
   
 
 
